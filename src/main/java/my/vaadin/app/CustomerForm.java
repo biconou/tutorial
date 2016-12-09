@@ -31,11 +31,13 @@ public class CustomerForm extends FormLayout {
         save.setClickShortcut(KeyCode.ENTER);
         save.addClickListener(e -> this.save());
         delete.addClickListener(e -> this.delete());
+        beanBinder = new BeanBinder<>(Customer.class);
+        beanBinder.bindInstanceFields(this);
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-        BeanFieldGroup.bindFieldsUnbuffered(customer, this);
+        beanBinder.setBean(customer);
 
         // Show delete button for only customers already in the database
         delete.setVisible(customer.isPersisted());
