@@ -1,5 +1,7 @@
 package my.vaadin.app;
 
+import java.time.LocalDate;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -179,7 +181,7 @@ public class CustomerService {
 				Calendar cal = Calendar.getInstance();
 				int daysOld = 0 - r.nextInt(365 * 15 + 365 * 60);
 				cal.add(Calendar.DAY_OF_MONTH, daysOld);
-				c.setBirthDate(cal.getTime());
+				c.setBirthDate(LocalDate.of(cal.getTime().getYear(), cal.getTime().getMonth(), cal.get(Calendar.DAY_OF_MONTH)));
 				save(c);
 			}
 		}
