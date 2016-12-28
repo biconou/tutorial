@@ -1,7 +1,6 @@
 package my.vaadin.app;
 
 import java.time.LocalDate;
-import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
