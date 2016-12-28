@@ -31,17 +31,12 @@ public class MyUI extends UI {
         final VerticalLayout layout = new VerticalLayout();
 
         filterText.setPlaceholder("filter by name...");
-        filterText.addValueChangeListener(e->{
-            grid.setItems(service.findAll(e.getValue()));
-        });
+        filterText.addValueChangeListener(e -> updateList());
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
         Button clearFilterTextBtn = new Button(FontAwesome.TIMES);
         clearFilterTextBtn.setDescription("Clear the current filter");
-        clearFilterTextBtn.addClickListener(e -> {
-            filterText.clear();
-            updateList();
-        });
+        clearFilterTextBtn.addClickListener(e -> filterText.clear());
 
         CssLayout filtering = new CssLayout();
         filtering.addComponents(filterText, clearFilterTextBtn);
