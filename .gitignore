@@ -2,3 +2,6 @@
 
 *.iml
 .idea
+
+# theme css files are generated from .scss files
+/src/main/webapp/VAADIN/themes/mytheme/*.css
